@@ -4,26 +4,6 @@ ADD main.go /go/src/app/
 WORKDIR /go/src/app
 RUN go mod init
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -ldflags '-extldflags "-static"' -o app .
-ENV ANSIBLE_VERSION 2.5.0 
-ENV BUILD_PACKAGES \
-  bash \
-  curl \
-  tar \
-  openssh-client \
-  sshpass \
-  git \
-  python \
-  py-boto \
-  py-dateutil \
-  py-httplib2 \
-  py-jinja2 \
-  py-paramiko \
-  py-pip \
-  py-yaml \
-  ca-certificates
-# If installing ansible@testing
-#RUN \
-#	echo "@testing http://nl.alpinelinux.org/alpine/edge/testing" >> #/etc/apk/repositories
 RUN set -x && \
     \
     echo "==> Adding build-dependencies..."  && \
