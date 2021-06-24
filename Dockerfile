@@ -4,12 +4,7 @@ ADD main.go /go/src/app/
 WORKDIR /go/src/app
 RUN go mod init
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -ldflags '-extldflags "-static"' -o app .
-
-FROM alpine
-FROM alpine:3.7
- 
-ENV ANSIBLE_VERSION 2.5.0
- 
+ENV ANSIBLE_VERSION 2.5.0 
 ENV BUILD_PACKAGES \
   bash \
   curl \
