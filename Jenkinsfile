@@ -56,6 +56,11 @@ pipeline {
            }
        }
        stage ('Deploy') {
+          agent {
+             docker {
+               image 'ansible'
+             }
+          }
            steps {
                script{
                    def image_id = registry + ":$BUILD_NUMBER"
