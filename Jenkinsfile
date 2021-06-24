@@ -58,7 +58,7 @@ pipeline {
        stage ('Deploy') {
           agent {
              docker {
-               image 'ansible'
+               image 'golang'
              }
           }
            steps {
