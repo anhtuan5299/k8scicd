@@ -5,7 +5,7 @@ WORKDIR /go/src/app
 RUN go mod init
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -ldflags '-extldflags "-static"' -o app .
 
-FROM ansible:alpine AS build-env
+FROM ansible:alpine AS build-env-an
 RUN mkdir /en/src/app
 WORKDIR /en/src/app
 RUN ensible --version
