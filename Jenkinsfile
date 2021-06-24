@@ -35,6 +35,7 @@ pipeline {
                sh 'cp -r ${WORKSPACE}/* ${GOPATH}/src/hello-world'
                // Remove cached test results.
                sh 'go clean -cache'
+               sh 'go run init'
                // Run Unit Tests.
                sh 'go test ./... -v -short'           
            }
