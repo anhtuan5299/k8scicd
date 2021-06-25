@@ -56,11 +56,6 @@ pipeline {
            }
        }
        stage ('Deploy') {
-          agent {
-             docker {
-               image 'golang'
-             }
-          }
            steps {
                script{
                    def image_id = registry + ":$BUILD_NUMBER"
