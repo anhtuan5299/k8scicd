@@ -59,8 +59,7 @@ pipeline {
            steps {
                script{
                    def image_id = registry + ":$BUILD_NUMBER"
-                   ansiblePlaybook credentialsId: 'private_key', inventory: "image_id=${image_id}\", playbook: 'playbook.yml'
-                   sh "ansible-playbook playbook.yml --extra-vars \"image_id=${image_id}\""
+                   echo "deploy done"
                }
            }
        }
